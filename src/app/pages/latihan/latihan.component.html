@@ -1,29 +1,49 @@
-<form>
+<form [formGroup]="formGroup">
     <div class="form-group row">
         <label class="col-sm-2 col-form-label">Nim</label>
         <div class="col-sm-5">
-            <input type="text"  class="form-control">
+            <input type="text"
+             formControlName="nim"
+             [className]="formGroup.controls['nim'].hasError('required') 
+                && formGroup.controls['nim'].touched ? 
+                'form-control is-invalid' : 'form-control'"
+             />
+             <div class="invalid-feedback" 
+                *ngIf="formGroup.controls['nim'].hasError('required') 
+                && formGroup.controls['nim'].touched">
+                Nim is required
+            </div>
         </div>
     </div>
 
     <div class="form-group row">
         <label class="col-sm-2 col-form-label">Nama</label>
         <div class="col-sm-10">
-            <input type="text"  class="form-control">
+            <input type="text" 
+            [className]="formGroup.controls['nama'].hasError('required') 
+                && formGroup.controls['nama'].touched ? 
+                'form-control is-invalid' : 'form-control'"
+            formControlName="nama">
+            
+            <div class="invalid-feedback" 
+            *ngIf="formGroup.controls['nama'].hasError('required') 
+            && formGroup.controls['nama'].touched">
+            Nama is required
+        </div>
         </div>
     </div>
 
     <div class="form-group row">
         <label class="col-sm-2 col-form-label">Web Url</label>
         <div class="col-sm-10">
-            <input type="text"  class="form-control">
+            <input type="text"  class="form-control" formControlName="weburl">
         </div>
     </div>
 
     <div class="form-group row">
         <label class="col-sm-2 col-form-label">Kampus</label>
         <div class="col-sm-10">
-            <input type="text"  class="form-control">
+            <input type="text"  class="form-control" formControlName="kampus">
         </div>
     </div>
 
@@ -31,11 +51,11 @@
         <label class="col-sm-2 col-form-label">Type</label>
         <div class="col-sm-10">
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="type"  value="0">
+                <input class="form-check-input" type="radio" name="type"  value="0" formControlName="type">
                 <label class="form-check-label">Data UTS</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="type"  value="1">
+                <input class="form-check-input" type="radio" name="type"  value="1" formControlName="type">
                 <label class="form-check-label">Data UAS</label>
             </div>
         </div>
@@ -44,7 +64,7 @@
     <div class="form-group row">
         <label class="col-sm-2 col-form-label">&nbsp;</label>
         <div class="col-sm-10">
-            <button type="button" class="btn btn-primary">Save Data</button>
+            <button type="button" class="btn btn-primary" (click)="onSaveData()">Save Data</button>
             <button type="button" class="btn btn-danger" style="margin-left: 5px;">Reset</button>
         </div>
     </div>
