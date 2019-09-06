@@ -1,0 +1,45 @@
+{{nama}}
+
+<table class="table">
+    <tr>
+        <td>Nama</td>
+        <td>: {{mahasiswa.nama}}</td>
+    </tr>
+    <tr>
+        <td>Alamat</td>
+        <td>: {{mahasiswa.alamat}}</td>
+    </tr>
+    <tr>
+        <td>Telpon</td>
+        <td>: {{mahasiswa.telpon}}</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>: {{mahasiswa.email}}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <button (click)="onSave()">Save</button>
+            <button (click)="onEdit()">Edit</button>
+        </td>
+    </tr>
+</table>
+
+<hr>
+<input #kendaraan value="">
+<button (click)="onAddKendaraan(kendaraan.value)">Add</button>
+<br>
+<h2>Daftar Kendaraan</h2>
+<ul>
+    <li *ngFor="let item of kendaraanList">
+        {{item}}
+    </li>
+</ul>
+
+<div *ngIf="viewPage; else elseBlock">
+    asdf
+</div>
+<ng-template #elseBlock>
+    dddd
+</ng-template>

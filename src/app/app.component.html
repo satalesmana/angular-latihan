@@ -1,0 +1,43 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+  <a class="navbar-brand" href="#">{{title}}</a>
+
+  <button class="navbar-toggler" type="button" 
+    (click)="navbarCollapsed = !navbarCollapsed" 
+    [attr.aria-expanded]="!navbarCollapsed" 
+    aria-controls="navbarSupportedContent" 
+    aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" 
+    [ngbCollapse]="navbarCollapsed" id="navbarSupportedContent"> 
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <a class="nav-link" routerLink="" routerLinkActive="active" >Home 
+          <span class="sr-only">(current)</span></a>
+      </li>
+      <!-- <li class="nav-item dropdown" ngbDropdown>
+        <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0)" 
+        id="navbarDropdown" role="button" data-toggle="dropdown"
+         aria-haspopup="true" aria-expanded="false">
+          Student
+        </a>
+        <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" ngbDropdownItem href="javascript:void(0)">Student Form</a>
+          <a class="dropdown-item" ngbDropdownItem href="javascript:void(0)">Student List</a>
+        </div>
+      </li> -->
+
+      <li class="nav-item ">
+        <a class="nav-link" routerLink="/math" routerLinkActive="active" >Math</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>
+<br>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

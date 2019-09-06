@@ -1,0 +1,30 @@
+Nama : <input [(ngModel)]="nama">
+<br>
+Your name is {{nama}}<br>
+
+<hr>
+<h2>Sample Produk</h2>
+<table class="table">
+    <tr>
+        <td>Nama Produk</td>
+        <td>
+            <label *ngIf="!isEdit">{{produk.nama}}</label>
+
+            <input *ngIf="isEdit" [(ngModel)]="produk.nama" class="form-control">
+        </td>
+    </tr>
+    <tr>
+        <td>Nama Harga</td>
+        <td>
+            <label *ngIf="!isEdit">{{produk.harga}}</label>
+            <input *ngIf="isEdit" [(ngModel)]="produk.harga" type="number" class="form-control">
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>
+            <button *ngIf="isEdit" class="btn btn-primary" (click)="SaveData()">Save</button>
+            <button *ngIf="!isEdit" class="btn btn-warning" (click)="onEditData()">Edit</button>
+        </td>
+    </tr>
+</table>
