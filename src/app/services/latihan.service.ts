@@ -26,6 +26,32 @@ export class LatihanService {
     });
   }
 
+  public edit(id:string):Observable<any>{
+    return Observable.create(observer=>{
+      this.http.get(this.baseUrl+'edit/oop_tugas/'+id).subscribe((respond:any)=>{
+        let outputs:any = [];
+        if (respond.data.length > 0) {
+          outputs = respond.data
+        }
+        observer.next(outputs);
+        observer.complete(outputs);
+        return {unsubcribe() {outputs}};
+      });
+    });
+  }
+
+  public update(data:any):Observable<any> {
+	  return Observable.create(observer => {
+      this.http.post(this.baseUrl+'update/oop_tugas', JSON.stringify(data))
+        .subscribe((respond:any) => {
+          observer.next(respond);
+          observer.complete();
+        return {unsubcribe() {respond}};
+	    });
+	  });
+  }
+
+
   public add(data:any):Observable<any> {
 	  return Observable.create(observer => {
       this.http.post(this.baseUrl+'add/oop_tugas', JSON.stringify(data))

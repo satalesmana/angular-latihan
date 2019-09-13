@@ -1,3 +1,4 @@
+<div>
 <form [formGroup]="formGroup">
     <div class="form-group row">
         <label class="col-sm-2 col-form-label">Nim</label>
@@ -64,7 +65,19 @@
     <div class="form-group row">
         <label class="col-sm-2 col-form-label">&nbsp;</label>
         <div class="col-sm-10">
-            <button type="button" class="btn btn-primary" (click)="onSaveData()">Save Data</button>
+            <button 
+                type="button" 
+                *ngIf="!isEdit"
+                class="btn btn-primary" 
+                (click)="onSaveData()">Save Data
+            </button>
+
+            <button type="button" 
+                *ngIf="isEdit"
+                class="btn btn-info" 
+                (click)="onUpdate()">Save Upate
+            </button>
+
             <button type="button" class="btn btn-danger" style="margin-left: 5px;">Reset</button>
         </div>
     </div>
@@ -78,6 +91,7 @@
             <th>KAMPUS</th>
             <th>TYPE</th>
             <th>WEB URL</th>
+            <th>ACTION</th>
         </tr>
     </thead>
     <tbody>
@@ -87,6 +101,24 @@
             <td>{{item.kampus}}</td>
             <td>{{item.type}}</td>
             <td>{{item.weburl}}</td>
+            <td>
+                <button type="button" 
+                    class="btn btn-sm btn-primary" 
+                    (click)="onEdit(item.id)">
+                    Edit
+                </button>
+            </td> 
         </tr>
     </tbody>
 </table>
+
+<ng-template #customLoadingTemplate>
+    <div class="custom-class">
+        <h3>
+            Loading...
+        </h3>
+    </div>
+</ng-template>
+
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
+</div>

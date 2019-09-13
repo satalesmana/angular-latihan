@@ -7,6 +7,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 
+import { NgxLoadingModule } from 'ngx-loading';
+
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { MathComponent } from './pages/math/math.component';
 import { FormpageComponent } from './pages/formpage/formpage.component';
@@ -27,7 +29,8 @@ import { LatihanComponent } from './pages/latihan/latihan.component';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxLoadingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
