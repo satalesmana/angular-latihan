@@ -84,6 +84,18 @@ export class LatihanComponent implements OnInit {
     });
   }
 
+  onDelete(primary){
+    this.loading = true;
+    this.sc.delete({id:primary}).subscribe((output:any) => {
+      this.loading = false;
+      alert(output.message)
+
+      this.sc.list().subscribe((output:any) => {
+        this.list = output;
+      });
+    });
+  }
+
   validateForm() {
     this.formGroup = this.fb.group({
       nim: ['', Validators.required ],

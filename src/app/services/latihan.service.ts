@@ -63,5 +63,15 @@ export class LatihanService {
 	  });
   }
 
+  public delete(data:any):Observable<any> {
+	  return Observable.create(observer => {
+      this.http.post(this.baseUrl+'delete/oop_tugas', JSON.stringify(data))
+        .subscribe((respond:any) => {
+          observer.next(respond);
+          observer.complete();
+        return {unsubcribe() {respond}};
+	    });
+	  });
+  }
 
 }
