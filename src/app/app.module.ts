@@ -14,6 +14,7 @@ import { MathComponent } from './pages/math/math.component';
 import { FormpageComponent } from './pages/formpage/formpage.component';
 import { CrudComponent } from './pages/crud/crud.component';
 import { LatihanComponent } from './pages/latihan/latihan.component';
+import { PeminjamanComponent } from './pages/peminjaman/peminjaman.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LatihanComponent } from './pages/latihan/latihan.component';
     MathComponent,
     FormpageComponent,
     CrudComponent,
-    LatihanComponent
+    LatihanComponent,
+    PeminjamanComponent
   ],
   imports: [
     BrowserModule,

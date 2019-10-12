@@ -9,7 +9,7 @@ export class LatihanService {
   public baseUrl:string;
 
   constructor(private http:HttpClient) {
-    this.baseUrl = 'https://satalesmana.000webhostapp.com/res/api/'
+    this.baseUrl = 'http://localhost/lp3i/angularoop/server/index.php/api/'
   }
 
   public list():Observable<any> {

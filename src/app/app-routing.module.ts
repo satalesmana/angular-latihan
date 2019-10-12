@@ -5,12 +5,15 @@ import { FormpageComponent } from './pages/formpage/formpage.component';
 import { CrudComponent } from './pages/crud/crud.component';
 import {LatihanComponent} from './pages/latihan/latihan.component';
 import { from } from 'rxjs';
+import {PeminjamanComponent} 
+    from './pages/peminjaman/peminjaman.component';
 
 const routes: Routes = [
   {path:'math', component:MathComponent},
   {path:'form', component:FormpageComponent},
   {path:'crud', component:CrudComponent},
-  {path:'latihan', component:LatihanComponent}
+  {path:'latihan', component:LatihanComponent},
+  {path:'peminjaman', component:PeminjamanComponent}
 ];
 
 @NgModule({
